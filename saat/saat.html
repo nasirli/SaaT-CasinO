@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.watch{
+			position: absolute;
+			top: 0px;
+			left: 460px;
+		}
+		.minute{
+			position: relative;
+		    top: 10px;
+    		left: 886px;
+			transform-origin:100% 100%;
+    		
+		}
+		.second{
+			position: relative;
+			left: 912px;
+    		top: 10px;
+    		transform-origin:100% 100%;
+    		
+		}
+		.hour{
+			position: relative;
+			left: 934px;
+    		top: 10px;
+    		transform-origin:100% 100%;
+    		
+			
+		}
+	</style>
+</head>
+<body>
+
+	<div>
+		<img width="978px;" height="978px;" class="watch" src="watch.jpg" alt="">
+	</div>
+	
+		<img  height="304px;" class="hour" src="saat.png" alt="">
+		<img  height="350px;" class="second" src="saniye.png" alt="">
+		<img  height="470px;" class="minute" src="deqiqe.png" alt="">
+	
+
+	<script type="text/javascript">
+	var mywatch = setInterval(AnalogWatch,1000);
+		function AnalogWatch(){
+			var mydate= new Date();
+			var saaat=30 * mydate.getHours();
+			var deeqiqe=6 * mydate.getMinutes();
+			var saniyee=6 * mydate.getSeconds();
+				document.getElementsByTagName("img")[1].style.transform="rotate("+saaat+"deg)";
+				document.getElementsByTagName("img")[2].style.transform="rotate("+deeqiqe+"deg)";
+				document.getElementsByTagName("img")[3].style.transform="rotate("+saniyee+"deg)";
+			}
+	</script>
+</body>
+</html>

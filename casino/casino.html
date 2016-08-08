@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body{
+		background: center center url(back.jpg);
+		background-size: cover;
+		}
+		#casi{
+			margin-left: 600px;
+			margin-top: 0px;
+			transition: 4s;
+		}
+		#point{
+			position: absolute;
+			top:246px;
+			right: 685px; 
+		}
+		#spn{
+			position: absolute;
+			top:200px;
+			right: 300px;
+		}
+		#spn:active { 
+   			background-image:url("spinH.png");
+		}
+		.main{
+			position: relative;
+		}
+		.pul{
+			color: white;
+			font-family: calibri;
+			font-size: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="price"><h1 class="pul">200</h1></div>
+	<div class="main">
+		<img   id="casi" src="carx.png" alt="">
+		<img id="point" src="pointer.png" alt="">
+		<img onclick="firla()" id="spn" src="spin.png" alt="">
+	</div>
+	<script type="text/javascript">
+	var negdpul=200;
+		function firla(){
+				var musiqi = new Audio('voice.mp3');
+				var degre=18;
+				var rnd=Math.random()*100;
+				var casino=document.getElementsByTagName("img")[0];
+				rnd=Math.floor(rnd)
+				var qaliq=rnd%20
+				
+				var hbir=document.getElementsByTagName("h1")[0]
+				
+				degre=degre*rnd
+				casino.style.transform = "rotate("+degre+"deg)";
+				if(qaliq==0){
+					negdpul=negdpul+100;
+					musiqi.play();
+					setTimeout(function(){musiqi.pause();},4000);
+					setTimeout(function(){ alert("Conguralition you earn 100$"); }, 4000);
+					setTimeout(function(){ hbir.innerHTML=negdpul; }, 4000);
+				}
+				else if(qaliq%2==1 || qaliq==1){
+					negdpul=negdpul-15;
+					musiqi.play();
+					setTimeout(function(){musiqi.pause();},4000);
+					setTimeout(function(){ alert("lose"); }, 4000);
+					setTimeout(function(){hbir.innerHTML=negdpul; }, 4000);
+
+					
+				}
+				else if(qaliq==6 || qaliq==12 || qaliq==16){
+					negdpul=negdpul+30;
+					musiqi.play();
+					setTimeout(function(){musiqi.pause();},4000);
+					setTimeout(function(){ alert("Double shout Yeahh"); }, 4000);
+					setTimeout(function(){ hbir.innerHTML=negdpul}, 4000);
+				}
+	
+				else{
+					negdpul=negdpul;
+					musiqi.play();
+					setTimeout(function(){musiqi.pause();},4000);
+					setTimeout(function(){ alert("Your money is safe"); }, 4000);
+					setTimeout(function(){ hbir.innerHTML=negdpul},4000);
+
+				}
+
+
+	}
+	</script>
+</body>
+</html>
